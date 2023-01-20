@@ -18,3 +18,26 @@ GROUP BY exam_id;
 SELECT department_id, COUNT(*) 
 FROM degrees 
 GROUP BY department_id;
+
+Join
+1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+SELECT degrees.name, students.*
+FROM degrees
+	JOIN students
+    	ON degrees.id = students.degree_id
+WHERE degrees.name = 'Corso di Laurea in Economia';
+
+2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
+SELECT departments.name, degrees.*
+FROM departments
+    JOIN degrees
+        ON departments.id = degrees.department_id
+WHERE departments.name = 'Dipartimento di Neuroscienze'
+    AND degrees.level = 'magistrale';
+
+3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+SELECT teachers.*, course_teacher.* 
+FROM teachers 
+    JOIN course_teacher 
+        ON teachers.id = course_teacher.teacher_id 
+WHERE teachers.id LIKE 44;
