@@ -36,8 +36,11 @@ WHERE departments.name = 'Dipartimento di Neuroscienze'
     AND degrees.level = 'magistrale';
 
 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
-SELECT teachers.*, course_teacher.* 
-FROM teachers 
-    JOIN course_teacher 
-        ON teachers.id = course_teacher.teacher_id 
-WHERE teachers.id LIKE 44;
+SELECT courses.*
+FROM teachers
+    JOIN course_teacher
+        ON teachers.id = course_teacher.teacher_id
+    JOIN courses
+        ON course_teacher.course_id = courses.id
+WHERE teachers.name LIKE "Fulvio"
+    AND teachers.surname LIKE "Amato";
