@@ -42,8 +42,8 @@ FROM teachers
         ON teachers.id = course_teacher.teacher_id
     JOIN courses
         ON course_teacher.course_id = courses.id
-WHERE teachers.name LIKE "Fulvio"
-    AND teachers.surname LIKE "Amato";
+WHERE teachers.name LIKE 'Fulvio'
+    AND teachers.surname LIKE 'Amato';
 
 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 SELECT *
